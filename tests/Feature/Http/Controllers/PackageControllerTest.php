@@ -22,8 +22,11 @@ class PackageControllerTest extends TestCase
 
     public function testPackagePost()
     {
-        $response = $this->get('/package');
-        $response->assertStatus(200);
+        $package = factory('App\Models\Packages')->make();
+        //When user submits post request to create task endpoint
+        $this->post('/package',$package->toArray());
+        //It gets stored in the database
+        $this->assertEquals(1,Packages::all()->count());
     }
 
     public function testgetIndexTrue()

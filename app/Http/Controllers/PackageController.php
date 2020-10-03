@@ -20,7 +20,6 @@ class PackageController extends Controller
             $package = \DB::connection('mongodb')
             ->collection('packages')
             ->get();
-            // return response()->json($package[0]['koli_data']);
             return response()->json($package);
         }
         else {
@@ -104,26 +103,69 @@ class PackageController extends Controller
             );
             $package->koli_data = array ( 
                 array(
-                    'koli_length' => $request->input('koli_data.key.koli_length'),
-                    'awb_url' => $request->input('koli_data.key.awb_url'),
-                    'created_at' => $request->input('koli_data.key.created_at'),
-                    'koli_chargeable_weight' => $request->input('koli_data.key.koli_chargeable_weight'),
-                    'koli_width' => $request->input('koli_data.key.koli_width'),
-                    'koli_surcharge' => $request->input('koli_data.key.koli_surcharge'),
-                    'koli_height' => $request->input('koli_data.key.koli_height'),
-                    'updated_at' => $request->input('koli_data.key.updated_at'),
-                    'koli_description' => $request->input('koli_data.key.koli_description'),
-                    'koli_formula_id' => $request->input('koli_data.key.koli_formula_id'),
-                    'connote_id' => $request->input('koli_data.key.connote_id'),
-                    'koli_volume' => $request->input('koli_data.key.koli_volume'),
-                    'koli_weight' => $request->input('koli_data.key.koli_weight'),
-                    'koli_id' => $request->input('koli_data.key.koli_id'),
+                    'koli_length' => $request->input('koli_data.0.koli_length'),
+                    'awb_url' => $request->input('koli_data.0.awb_url'),
+                    'created_at' => $request->input('koli_data.0.created_at'),
+                    'koli_chargeable_weight' => $request->input('koli_data.0.koli_chargeable_weight'),
+                    'koli_width' => $request->input('koli_data.0.koli_width'),
+                    'koli_surcharge' => $request->input('koli_data.0.koli_surcharge'),
+                    'koli_height' => $request->input('koli_data.0.koli_height'),
+                    'updated_at' => $request->input('koli_data.0.updated_at'),
+                    'koli_description' => $request->input('koli_data.0.koli_description'),
+                    'koli_formula_id' => $request->input('koli_data.0.koli_formula_id'),
+                    'connote_id' => $request->input('koli_data.0.connote_id'),
+                    'koli_volume' => $request->input('koli_data.0.koli_volume'),
+                    'koli_weight' => $request->input('koli_data.0.koli_weight'),
+                    'koli_id' => $request->input('koli_data.0.koli_id'),
                     'koli_custom_field' => array(
-                        'awb_sicepat' => $request->input('koli_data.key.koli_custom_field.awb_sicepat'),
-                        'harga_barang' => $request->input('koli_data.key.koli_custom_field.harga_barang')
+                        'awb_sicepat' => $request->input('koli_data.0.koli_custom_field.awb_sicepat'),
+                        'harga_barang' => $request->input('koli_data.0.koli_custom_field.harga_barang')
                     ),  
-                    'koli_code' => $request->input('koli_data.key.koli_code')
+                    'koli_code' => $request->input('koli_data.0.koli_code')
+                ),
+                array(
+                    'koli_length' => $request->input('koli_data.1.koli_length'),
+                    'awb_url' => $request->input('koli_data.1.awb_url'),
+                    'created_at' => $request->input('koli_data.1.created_at'),
+                    'koli_chargeable_weight' => $request->input('koli_data.1.koli_chargeable_weight'),
+                    'koli_width' => $request->input('koli_data.1.koli_width'),
+                    'koli_surcharge' => $request->input('koli_data.1.koli_surcharge'),
+                    'koli_height' => $request->input('koli_data.1.koli_height'),
+                    'updated_at' => $request->input('koli_data.1.updated_at'),
+                    'koli_description' => $request->input('koli_data.1.koli_description'),
+                    'koli_formula_id' => $request->input('koli_data.1.koli_formula_id'),
+                    'connote_id' => $request->input('koli_data.1.connote_id'),
+                    'koli_volume' => $request->input('koli_data.1.koli_volume'),
+                    'koli_weight' => $request->input('koli_data.1.koli_weight'),
+                    'koli_id' => $request->input('koli_data.1.koli_id'),
+                    'koli_custom_field' => array(
+                        'awb_sicepat' => $request->input('koli_data.1.koli_custom_field.awb_sicepat'),
+                        'harga_barang' => $request->input('koli_data.1.koli_custom_field.harga_barang')
+                    ),  
+                    'koli_code' => $request->input('koli_data.1.koli_code')
+                ),
+                array(
+                    'koli_length' => $request->input('koli_data.2.koli_length'),
+                    'awb_url' => $request->input('koli_data.2.awb_url'),
+                    'created_at' => $request->input('koli_data.2.created_at'),
+                    'koli_chargeable_weight' => $request->input('koli_data.2.koli_chargeable_weight'),
+                    'koli_width' => $request->input('koli_data.2.koli_width'),
+                    'koli_surcharge' => $request->input('koli_data.2.koli_surcharge'),
+                    'koli_height' => $request->input('koli_data.2.koli_height'),
+                    'updated_at' => $request->input('koli_data.2.updated_at'),
+                    'koli_description' => $request->input('koli_data.2.koli_description'),
+                    'koli_formula_id' => $request->input('koli_data.2.koli_formula_id'),
+                    'connote_id' => $request->input('koli_data.2.connote_id'),
+                    'koli_volume' => $request->input('koli_data.2.koli_volume'),
+                    'koli_weight' => $request->input('koli_data.2.koli_weight'),
+                    'koli_id' => $request->input('koli_data.2.koli_id'),
+                    'koli_custom_field' => array(
+                        'awb_sicepat' => $request->input('koli_data.2.koli_custom_field.awb_sicepat'),
+                        'harga_barang' => $request->input('koli_data.2.koli_custom_field.harga_barang')
+                    ),  
+                    'koli_code' => $request->input('koli_data.2.koli_code')
                 )
+
             );
             $package->custom_field = $request->input('custom_field');
             $package->currentLocation = array ( 
@@ -159,7 +201,12 @@ class PackageController extends Controller
         $package = \DB::connection('mongodb')
         ->collection('packages')
         ->where('transaction_id', $id)
-        ->update(['customer_name' => $request->input('customer_name')]);
+        ->update([
+            'customer_name' => $request->input('customer_name'),
+            'customer_code' => $request->input('customer_code'),
+            'transaction_amount' => $request->input('transaction_amount'),
+            'transaction_payment_type' => $request->input('transaction_payment_type')
+        ]);
 
         if ($package) {
             return response()->json('Success');
